@@ -260,7 +260,7 @@
 </div>
 <!-- ./wrapper -->
 
-<script scr="{{asset('assets/admin/js/admin.js')}}"></script>
+<script src="{{asset('assets/admin/js/admin.js')}}"></script>
 
 </body>
 </html>
