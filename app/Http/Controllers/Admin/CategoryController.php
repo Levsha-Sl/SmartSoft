@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
+        $categories = Category::paginate(3);
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -45,7 +46,7 @@ class CategoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) // нам не нужен
     {
         //
     }
@@ -58,7 +59,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -81,6 +82,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd(__METHOD__);
     }
 }
