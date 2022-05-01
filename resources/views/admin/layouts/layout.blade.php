@@ -205,7 +205,7 @@
                             <p>Главная</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-archive"></i>
                             <p>
@@ -255,6 +255,17 @@
 <!-- ./wrapper -->
 
 <script src="{{asset('assets/admin/js/admin.js')}}"></script>
+
+<script>
+    $('.nav-sidebar a').each(function () {
+        let location = window.location.protocol + '//' + window.location.host + window.location.pathname;
+        let link = this.href;
+        if (link == location) {
+            $(this).addClass('active');
+            $(this).closest('.has-treeview').addClass('menu-open');
+        }
+    });
+</script>
 
 </body>
 </html>
