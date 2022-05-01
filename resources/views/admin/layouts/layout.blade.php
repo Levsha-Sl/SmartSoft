@@ -236,8 +236,7 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-
+    <div class="content-wrapper pt-2">
         <div class="container mt-2">
             <div class="row">
                 <div class="col-12">

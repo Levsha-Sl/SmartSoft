@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Http\Requests\StoreCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,12 +36,12 @@ class CategoryController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreCategory $request)
     {
-        $request->validate([
+        /*$request->validate([
             'title' => 'required',
             'description' => 'required',
-        ]);
+        ]);*/
         Category::create($request->all());
         return redirect()->route('categories.index')->with('success', 'Категория добавлена');
     }
@@ -64,7 +65,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        dd(__METHOD__);
+        $category = Category::find($id);
+        return view("admin.categories.edit", compact('category'));
     }
 
     /**
@@ -74,9 +76,13 @@ class CategoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCategory $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->slug = null;
+        $category->update($request->all());
+
+        return redirect()->route('categories.index')->with('success', 'Изменения сохранены');
     }
 
     /**
