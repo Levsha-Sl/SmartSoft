@@ -55,7 +55,7 @@
                                     <td>{{ $category->title }}</td>
                                     <td>{{ $category->slug }}</td>
                                     <td>
-                                        <a href="{{route('$categories.edit', [$category=>$category->id])}}"
+                                        <a href="{{route('$categories.edit', ['category' =>$category->id])}}"
                                            class="btn btn-info btn-sm float-left mr-1">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
