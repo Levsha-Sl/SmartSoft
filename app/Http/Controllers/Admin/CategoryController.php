@@ -33,11 +33,16 @@ class CategoryController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        Category::create($request->all());
+        return redirect()->route('categories.index')->with('success', 'Категория добавлена');
     }
 
     /**
