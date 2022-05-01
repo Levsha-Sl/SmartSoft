@@ -41,7 +41,17 @@ class ProductController extends Controller
      */
     public function store(StoreProduct $request)
     {
-        dd($request->all());
+        $data = $request->all();
+
+        if($request->hasFile('thumbnail')){
+            $folder = date('Y-m-d');
+            $data['thumbnail'] = $request->file('thumbnail')->store("images/{$folder}");
+        }
+
+//        $data['thumbnail'] = Post::uploadImage($request);
+
+        $product = Product::create($data);
+        $product->tags()->sync($request->tags);
 
         return redirect()->route('products.index')->with('success', 'Продукт добавлен');
     }
