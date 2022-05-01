@@ -33,6 +33,7 @@
                 <label for="description">Описание</label>
                 <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror"
                           rows="5"
+                          id="description"
                           placeholder="Что означает этот тег?"></textarea>
             </div>
         </div>

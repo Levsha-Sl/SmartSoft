@@ -36,6 +36,7 @@
                 <label for="description">Описание</label>
                 <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror"
                           rows="5"
+                          id="description"
                           placeholder="Расскажите о категории">{{ $category->description }}</textarea>
             </div>
             <div class="form-group">

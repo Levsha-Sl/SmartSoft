@@ -17,8 +17,11 @@ mix.js('resources/js/app.js', 'public/js')
 mix.styles([
     <!-- Font Awesome -->
     'resources/assets/admin/plugins/fontawesome-free/css/all.min.css',
+    <!-- Select2 -->
+    'resources/assets/admin/plugins/select2/css/select2.min.css',
+    'resources/assets/admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css',
     <!-- Theme style -->
-    'resources/assets/admin/css/adminlte.min.css'
+    'resources/assets/admin/css/adminlte.min.css',
 ], 'public/assets/admin/css/admin.css');
 
 mix.scripts([
@@ -26,10 +29,12 @@ mix.scripts([
     'resources/assets/admin/plugins/jquery/jquery.min.js',
     <!-- Bootstrap 4 -->
     'resources/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js',
+    <!-- Select2 -->
+    'resources/assets/admin/plugins/select2/js/select2.full.min.js',
     <!-- AdminLTE App -->
     'resources/assets/admin/js/adminlte.min.js',
     <!-- AdminLTE for demo purposes -->
-    'resources/assets/admin/js/demo.js'
+    'resources/assets/admin/js/demo.js',
 ], 'public/assets/admin/js/admin.js');
 
 mix.copyDirectory('resources/assets/admin/img', 'public/assets/admin/img');
