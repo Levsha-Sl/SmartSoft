@@ -26,8 +26,9 @@ class StoreProduct extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
+            'url' => 'required',
             'category_id' => 'required|integer',
-            'thumbnail' => 'nullable|image',
+            'thumbnail' => 'required|image',
         ];
     }
 }

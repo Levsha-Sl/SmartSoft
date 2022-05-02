@@ -36,7 +36,12 @@
                           id="description"
                           placeholder="Расскажите о продукте"></textarea>
             </div>
-
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input type="text" name="url" class="form-control @error('url') is-invalid @enderror"
+                       id="url"
+                       placeholder="Ссылка на офицальную страницу">
+            </div>
             <div class="form-group">
                 <label for="category_id">Категория</label>
                 <select name="category_id" id="category_id"

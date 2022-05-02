@@ -10,7 +10,7 @@ class Product extends Model
 {
     use Sluggable;
 
-    protected $fillable =['title','description','category_id','thumbnail'];
+    protected $fillable =['title','description','url','category_id','thumbnail'];
 
     /**
      * Return the sluggable configuration array for this model.

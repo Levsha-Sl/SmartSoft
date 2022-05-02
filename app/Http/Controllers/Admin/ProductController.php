@@ -44,9 +44,9 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
-        if($request->hasFile('thumbnail')){
+        if($request->hasFile('thumbnail')) {
             $folder = date('Y-m-d');
-            $data['thumbnail'] = $request->file('thumbnail')->storeAs("images/{$folder}",$request->file('thumbnail')->getClientOriginalName());
+            $data['thumbnail'] = $request->file('thumbnail')->store("images/{$folder}");
         }
 
         //$data['thumbnail'] = Post::uploadImage($request);

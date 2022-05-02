@@ -56,7 +56,7 @@
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->title }}</td>
                                 <td>{{ $product->category->title }}</td>
-                                <td>{{ $product->tags }}</td>
+                                <td>{{ $product->tags->pluck('title')->join(', ') }}</td>
                                 <td>{{ $product->created_at }}</td>
                                 <td>
                                     <a href="{{route('products.edit', ['product' =>$product->id])}}"

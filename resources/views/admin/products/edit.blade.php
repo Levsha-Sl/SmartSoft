@@ -38,6 +38,19 @@
                           rows="5"
                           placeholder="Расскажите о категории">{{ $category->description }}</textarea>
             </div>
+
+            <!--TODO выше надо переписать редактирование-->
+
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input type="text" name="url" class="form-control @error('url') is-invalid @enderror"
+                       id="url"
+                       value="{{ $product->url }}"
+                       placeholder="Ссылка на офицальную страницу">
+            </div>
+
+            <!--TODO ниже надо переписать редактирование-->
+
             <div class="form-group">
                 <label for="exampleInputFile">Изображение</label>
                 <div class="input-group">
