@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
         $categories = Category::pluck('title', 'id')->all();
         $tags = Tag::pluck('title', 'id')->all();
-        return view('admin.products.create', compact('categories','tags'));
+        return view('admin.products.create', compact('categories', 'tags'));
     }
 
     /**
@@ -44,12 +44,7 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
-        if($request->hasFile('thumbnail')) {
-            $folder = date('Y-m-d');
-            $data['thumbnail'] = $request->file('thumbnail')->store("images/{$folder}");
-        }
-
-        //$data['thumbnail'] = Post::uploadImage($request);
+        $data['thumbnail'] = Product::uploadImage($request);
 
         $product = Product::create($data);
         $product->tags()->sync($request->tags);
@@ -77,7 +72,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view("admin.products.edit", compact('product'));
+        $categories = Category::pluck('title', 'id')->all();
+        $tags = Tag::pluck('title', 'id')->all();
+        return view("admin.products.edit", compact('product', 'categories', 'tags'));
     }
 
     /**
@@ -91,7 +88,14 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->slug = null;
-        $product->update($request->all());
+        $data = $request->all();
+
+        if ($file = Product::uploadImage($request, $product->thumbnail)) {
+            $data['thumbnail'] = $file;
+        }
+
+        $product->update($data);
+        $product->tags()->sync($request->tags);
 
         return redirect()->route('products.index')->with('success', 'Изменения сохранены');
     }

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Редактирование категории</h1>
+                    <h1>Редактирование продукта</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -20,7 +20,8 @@
 
     <!-- Main content -->
     <!-- form start -->
-    <form role="form" method="post" action="{{route('categories.update', ['category' => $category->id])}}">
+    <form method="post" action="{{route('products.update', ['product' => $product->id])}}"
+          enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -29,17 +30,15 @@
                 <label for="title">Название</label>
                 <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
                        id="title"
-                       value="{{ $category->title }}"
+                       value="{{ $product->title }}"
                        placeholder="Название категории">
             </div>
             <div class="form-group">
                 <label for="description">Описание</label>
                 <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror"
                           rows="5"
-                          placeholder="Расскажите о категории">{{ $category->description }}</textarea>
+                          placeholder="Расскажите о категории">{{ $product->description }}</textarea>
             </div>
-
-            <!--TODO выше надо переписать редактирование-->
 
             <div class="form-group">
                 <label for="url">URL</label>
@@ -49,19 +48,33 @@
                        placeholder="Ссылка на офицальную страницу">
             </div>
 
-            <!--TODO ниже надо переписать редактирование-->
+            <div class="form-group">
+                <label for='category_id'>Категория</label>
+                <select name='category_id' id='category_id'
+                        class="form-control select2bs4 @error('category_id') is-invalid @enderror">
+                    <option value=""></option>
+                    @foreach ($categories as $key => $value)
+                        <option value="{{ $key }}"
+                                @if ($product->category_id === $key) selected @endif>{{ $value }}</option>
+                    @endforeach
+                </select>
+            </div>
 
             <div class="form-group">
-                <label for="exampleInputFile">Изображение</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Выбрать</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Загрузить</span>
-                    </div>
-                </div>
+                <label for='tags'>Теги</label>
+                <select name='tags[]' id='tags' class="select2" multiple="multiple" data-placeholder="Выбор тегов"
+                        style="width: 100%;">
+                    @foreach ($tags as $key => $value)
+                        <option value="{{ $key }}"
+                                @if (in_array($key, $product->tags->pluck('id')->all())) selected @endif>{{ $value }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="thumbnail">Изображение</label>
+                <input type="file" name="thumbnail" id="thumbnail" class="form-control-file">
+                <div><img src="{{ $product->getImage() }}" alt="" class="img-thumbnail mt-2" width="200"></div>
             </div>
         </div>
         <!-- /.card-body -->
