@@ -20,7 +20,8 @@
 
     <!-- Main content -->
     <!-- form start -->
-    <form method="post" action="{{route('categories.update', ['category' => $category->id])}}" enctype="multipart/form-data">
+    <form method="post" action="{{route('categories.update', ['category' => $category->id])}}"
+          enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
