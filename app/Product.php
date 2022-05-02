@@ -61,7 +61,7 @@ class Product extends Model
              * @param array|string $options
              * @return string|false
              */
-            $path = $request->file('thumbnail')->store("images/product/{$folder}");
+            $path = $request->file('thumbnail')->store("images/products/{$folder}");
             return $path;
         }
         // https: //laravel.com/docs/7.x/filesystem#deleting-files

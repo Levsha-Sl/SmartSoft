@@ -39,12 +39,10 @@ class CategoryController extends Controller
     {
         $data = $request->all();
 
-        if ($request->hasFile('thumbnail')) {
-            $folder = date('Y-m-d');
-            $data['thumbnail'] = $request->file('thumbnail')->store("images/{$folder}");
-        }
+        $data['thumbnail'] = Category::uploadImage($request);
 
         Category::create($data);
+
         return redirect()->route('categories.index')->with('success', 'Категория добавлена');
     }
 
@@ -82,7 +80,13 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->slug = null;
-        $category->update($request->all());
+        $data = $request->all();
+
+        if ($file = Category::uploadImage($request, $category->thumbnail)) {
+            $data['thumbnail'] = $file;
+        }
+
+        $category->update($data);
 
         return redirect()->route('categories.index')->with('success', 'Изменения сохранены');
     }

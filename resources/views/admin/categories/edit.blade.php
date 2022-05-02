@@ -20,7 +20,7 @@
 
     <!-- Main content -->
     <!-- form start -->
-    <form role="form" method="post" action="{{route('categories.update', ['category' => $category->id])}}">
+    <form method="post" action="{{route('categories.update', ['category' => $category->id])}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -39,17 +39,11 @@
                           id="description"
                           placeholder="Расскажите о категории">{{ $category->description }}</textarea>
             </div>
+
             <div class="form-group">
-                <label for="exampleInputFile">Изображение</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Выбрать</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Загрузить</span>
-                    </div>
-                </div>
+                <label for="thumbnail">Изображение</label>
+                <input type="file" name="thumbnail" id="thumbnail" class="form-control-file">
+                <div><img src="{{ $category->getImage() }}" alt="" class="img-thumbnail mt-2" width="200"></div>
             </div>
         </div>
         <!-- /.card-body -->
