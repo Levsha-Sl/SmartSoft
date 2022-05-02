@@ -108,7 +108,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::destroy($id);
+        $product = Product::find($id);
+        $product->tags()->sync([]);
+
+        Storage::delete($product->thumbnail);
+        $product->delete();
+
         return redirect()->route('products.index')->with('success', 'Продукт удален');
     }
 }
