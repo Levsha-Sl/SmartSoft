@@ -20,7 +20,7 @@
 
     <!-- Main content -->
     <!-- form start -->
-    <form role="form" method="post" action="{{route('products.store')}}">
+    <form role="form" method="post" action="{{route('products.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="card-body">
             <div class="form-group">
@@ -67,12 +67,7 @@
 
             <div class="form-group">
                 <label for="thumbnail">Изображение</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" name="thumbnail" id="thumbnail" class="custom-file-input">
-                        <label class="custom-file-label" for="thumbnail">Выбрать</label>
-                    </div>
-                </div>
+                <input type="file" name="thumbnail" id="thumbnail" class="form-control-file">
             </div>
         </div>
         <!-- /.card-body -->

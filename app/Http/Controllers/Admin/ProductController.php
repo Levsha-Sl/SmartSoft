@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProduct;
+use Illuminate\Support\Facades\Storage;
 use App\Product;
 use App\Tag;
 
@@ -45,7 +46,7 @@ class ProductController extends Controller
 
         if($request->hasFile('thumbnail')){
             $folder = date('Y-m-d');
-            $data['thumbnail'] = $request->file('thumbnail')->store("images/{$folder}");
+            $data['thumbnail'] = $request->file('thumbnail')->storeAs("images/{$folder}",$request->file('thumbnail')->getClientOriginalName());
         }
 
 //        $data['thumbnail'] = Post::uploadImage($request);
