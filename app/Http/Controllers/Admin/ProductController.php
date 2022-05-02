@@ -49,7 +49,7 @@ class ProductController extends Controller
             $data['thumbnail'] = $request->file('thumbnail')->storeAs("images/{$folder}",$request->file('thumbnail')->getClientOriginalName());
         }
 
-//        $data['thumbnail'] = Post::uploadImage($request);
+        //$data['thumbnail'] = Post::uploadImage($request);
 
         $product = Product::create($data);
         $product->tags()->sync($request->tags);

@@ -20,7 +20,7 @@
 
     <!-- Main content -->
     <!-- form start -->
-    <form role="form" method="post" action="{{route('categories.store')}}">
+    <form role="form" method="post" action="{{route('categories.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="card-body">
             <div class="form-group">
@@ -31,22 +31,13 @@
             </div>
             <div class="form-group">
                 <label for="description">Описание</label>
-                <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror"
-                          rows="5"
-                          id="description"
-                          placeholder="Расскажите о категории"></textarea>
+                <textarea type="text" id="description" name="description"
+                          class="form-control @error('description') is-invalid @enderror"
+                          rows="5" placeholder="Расскажите о категории"></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputFile">Изображение</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Выбрать</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Загрузить</span>
-                    </div>
-                </div>
+                <label for="thumbnail">Изображение</label>
+                <input type="file" name="thumbnail" id="thumbnail" class="form-control-file">
             </div>
         </div>
         <!-- /.card-body -->

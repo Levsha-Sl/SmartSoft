@@ -37,11 +37,14 @@ class CategoryController extends Controller
      */
     public function store(StoreCategory $request)
     {
-        /*$request->validate([
-            'title' => 'required',
-            'description' => 'required',
-        ]);*/
-        Category::create($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('thumbnail')) {
+            $folder = date('Y-m-d');
+            $data['thumbnail'] = $request->file('thumbnail')->store("images/{$folder}");
+        }
+
+        Category::create($data);
         return redirect()->route('categories.index')->with('success', 'Категория добавлена');
     }
 

@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('url');
             $table->integer('view')->unsigned()->default(0);
             $table->string('thumbnail');
-            $table->integer('rating');
+            $table->integer('rating')->default(0);;
             $table->timestamps();
         });
     }
