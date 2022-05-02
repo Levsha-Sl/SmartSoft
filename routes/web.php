@@ -23,3 +23,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('/tags', 'TagController');
     Route::resource('/products', 'ProductController');
 });
+
+Route::get('/register', 'UserController@create')->name('register.create');
+Route::post('/register', 'UserController@create')->name('register.store');
