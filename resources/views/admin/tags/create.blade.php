@@ -27,6 +27,7 @@
                 <label for="title">Название</label>
                 <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
                        id="title"
+                       value="{{old('title')}}"
                        placeholder="Название тега">
             </div>
             <div class="form-group">
@@ -34,7 +35,7 @@
                 <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror"
                           rows="5"
                           id="description"
-                          placeholder="Что означает этот тег?"></textarea>
+                          placeholder="Что означает этот тег?">{{old('description')}}</textarea>
             </div>
         </div>
         <!-- /.card-body -->

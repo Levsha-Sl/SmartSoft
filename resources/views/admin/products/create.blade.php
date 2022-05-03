@@ -27,6 +27,7 @@
                 <label for="title">Название</label>
                 <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
                        id="title"
+                       value="{{old('title')}}"
                        placeholder="Название продукта">
             </div>
             <div class="form-group">
@@ -34,12 +35,13 @@
                 <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror"
                           rows="5"
                           id="description"
-                          placeholder="Расскажите о продукте"></textarea>
+                          placeholder="Расскажите о продукте">{{old('description')}}</textarea>
             </div>
             <div class="form-group">
                 <label for="url">URL</label>
                 <input type="text" name="url" class="form-control @error('url') is-invalid @enderror"
                        id="url"
+                       value="{{old('url')}}"
                        placeholder="Ссылка на офицальную страницу">
             </div>
             <div class="form-group">

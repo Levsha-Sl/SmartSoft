@@ -27,13 +27,14 @@
                 <label for="title">Название</label>
                 <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
                        id="title"
+                       value="{{old('title')}}"
                        placeholder="Название категории">
             </div>
             <div class="form-group">
                 <label for="description">Описание</label>
                 <textarea type="text" id="description" name="description"
                           class="form-control @error('description') is-invalid @enderror"
-                          rows="5" placeholder="Расскажите о категории"></textarea>
+                          rows="5" placeholder="Расскажите о категории">{{old('description')}}</textarea>
             </div>
             <div class="form-group">
                 <label for="thumbnail">Изображение</label>
