@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Registration Page</title>
+    <title>AdminLTE 3 | Login Page</title>
 
 
     <!-- Google Font: Source Sans Pro -->
@@ -14,7 +14,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <b>Регистрация</b>
+        <b>Авторизация</b>
     </div>
 
     <div class="card">
@@ -30,18 +30,15 @@
                 </div>
             @endif
 
-            <form action="{{ route('register.store')}}" method="post">
+            @if (session()->has('logInError'))
+                <div class="alert alert-danger">
+                    {{session('logInError')}}
+                </div>
+            @endif
+
+            <form action="{{ route('login.store')}}" method="post">
                 @csrf
 
-                <div class="input-group mb-3">
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Name"
-                           value="{{old('name')}}">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
-                </div>
                 <div class="input-group mb-3">
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email"
                            value="{{old('email')}}">
@@ -59,20 +56,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="password" name="password_confirmation" class="form-control"
-                           placeholder="Retype password">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Подписаться</button>
+                <button type="submit" class="btn btn-primary btn-block">Войти</button>
             </form>
 
-            <a href="{{route('login.create')}}" class="text-center">Авторизация</a>
+            <a href="{{route('register.create')}}" class="text-center" >Регистрация</a>
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
