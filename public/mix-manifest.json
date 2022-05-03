@@ -3,5 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/assets/admin/css/admin.css": "/assets/admin/css/admin.css",
     "/assets/admin/js/admin.js": "/assets/admin/js/admin.js",
-    "/assets/admin/css/adminlte.min.css.map": "/assets/admin/css/adminlte.min.css.map"
+    "/assets/admin/css/adminlte.min.css.map": "/assets/admin/css/adminlte.min.css.map",
+    "/assets/user/css/user.css": "/assets/user/css/user.css",
+    "/assets/user/js/user.js": "/assets/user/js/user.js"
 }
