@@ -51,6 +51,9 @@ mix.styles([
     'resources/assets/user/css/main.css',
 ], 'public/assets/user/css/user.css');
 
+mix.copyDirectory('resources/assets/user/plugins/fontawesome-free/svgs', 'public/assets/user/svgs');
+mix.copyDirectory('resources/assets/user/plugins/fontawesome-free/sprites', 'public/assets/user/sprites');
+
 mix.scripts([
     <!-- jQuery -->
     'resources/assets/admin/plugins/jquery/jquery.min.js',

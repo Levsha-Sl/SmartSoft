@@ -259,7 +259,7 @@
                 <p><i class="fas fa-phone-alt"></i> Телефон: <a href="tel:8-950-40-33-5-11">8-950-40-33-5-11</a></p>
                 <p><span><i class="nav-icon fas fa-envelope"></i></span> Почта: <a
                         href="mailto:smart@soft.com">smart@soft.com</a></p>
-                <p><span><i class="nav-icon fas fa-socks"></i></span> Телеграм: <a
+                <p><span><i class="fab fa-telegram"></i></span> Телеграм: <a
                         href="tg://resolve?domain=t24234est"> Написать </a></p>
                 <p><span><i class="fab fa-whatsapp"></i></span> WhatsApp: <a
                         href="whatsapp://send?text=Hello&phone=+31611111111&abid=+31611111111"> Написать</a></p>
