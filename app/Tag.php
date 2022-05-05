@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+    //https://github.com/cviebrock/eloquent-sluggable
     use Sluggable;
 
     protected $fillable = ['title', 'description'];

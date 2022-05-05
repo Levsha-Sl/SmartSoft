@@ -23,7 +23,7 @@ class CarouselController extends Controller
     {
         $request->validate([
             'title' => 'required|max:43',
-            'description' => 'max:106',
+            'description' => 'max:100',
             'thumbnail' => 'required|image',
         ]);
 
@@ -52,7 +52,7 @@ class CarouselController extends Controller
     {
         $request->validate([
             'title' => 'required|max:43',
-            'description' => 'max:106',
+            'description' => 'max:100',
             'thumbnail' => 'nullable|image',
         ]);
 

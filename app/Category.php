@@ -38,7 +38,6 @@ class Category extends Model
 
         if ($request->hasFile('thumbnail')) {
             if ($image) {
-                // https: //laravel.com/docs/7.x/filesystem#deleting-files
                 Storage::delete($image);
             }
 
