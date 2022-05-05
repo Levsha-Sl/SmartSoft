@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('title', 'Главная | SmartSoft')
+
 @section('header')
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -45,26 +47,50 @@
 @section('content')
     <section>
         <h2 class="header display-3">Новое</h2>
-        <div class="product">
-            <div class="product__img">
-                <img src="./image/sevenzip.png" alt="Архиватор 7-Zip">
-            </div>
-            <div class="product__desc">
-                <div class="margin-35">
-                    <h3><a href="./html/7zip.html" title="Архиватор 7-Zip">Архиватор 7-Zip</a></h3>
-                    <p>
-                        свободный файловый архиватор с высокой степенью сжатия данных.
-                        Поддерживает несколько алгоритмов сжатия и множество форматов данных,
-                        включая собственный формат 7z c высокоэффективным алгоритмом сжатия LZMA.
-                        Программа разрабатывается с 1999 года, она бесплатна и имеет открытый исходный код,
-                        большая часть которого свободно распространяется на условиях лицензии GNU LGPL,
-                        за исключением кода распаковщика UnRAR, который имеет ограничения. Основная платформа —
-                        Windows (в том числе Windows CE).
-                    </p>
-                    <a class="button btn--download btn_transparent" download href="./image/sevenzip.png">Скачать</a>
+        @foreach($products as $product)
+            <div class="product">
+                <div class="product__img">
+                    <img src="{{$product->getImage()}}" alt="{{$product->id_category."/".$product->title}}"/>
+                </div>
+                <div class="product__desc">
+                    <div class="margin-35">
+                        <h3><a href="{{route('products.single', ['slug' => $product->slug])}}"
+                               title="">{{$product->title}}</a></h3>
+                        <p>
+                            {!! $product->description !!}
+                        </p>
+                        <a class="button btn--download btn_transparent" download href="{{$product->url}}">Скачать</a>
+                        <small><a href="{{route('categories.single',['slug'=> $product->category->slug])}}"
+                                  title="">{{$product->category->title}}</a></small>
+                        <small>{{$product->getProductDate()}}</small>
+                        <small><i class="fa fa-eye"></i> {{$product->views}}</small>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
+    </section>
+
+    <!--
+                <div class="product">
+                <div class="product__img">
+                    <img src="./image/sevenzip.png" alt="Архиватор 7-Zip">
+                </div>
+                <div class="product__desc">
+                    <div class="margin-35">
+                        <h3><a href="./html/7zip.html" title="Архиватор 7-Zip">Архиватор 7-Zip</a></h3>
+                        <p>
+                            свободный файловый архиватор с высокой степенью сжатия данных.
+                            Поддерживает несколько алгоритмов сжатия и множество форматов данных,
+                            включая собственный формат 7z c высокоэффективным алгоритмом сжатия LZMA.
+                            Программа разрабатывается с 1999 года, она бесплатна и имеет открытый исходный код,
+                            большая часть которого свободно распространяется на условиях лицензии GNU LGPL,
+                            за исключением кода распаковщика UnRAR, который имеет ограничения. Основная платформа —
+                            Windows (в том числе Windows CE).
+                        </p>
+                        <a class="button btn--download btn_transparent" download href="./image/sevenzip.png">Скачать</a>
+                    </div>
+                </div>
+            </div>
         <div class="product">
             <div class="product__img">
                 <img src="./image/mozilla_firefox.jfif" alt="Браузер Mozilla Firefox">
@@ -80,7 +106,7 @@
                         темы, закладки, функция синхронизации работы с другими устройствами, менеджер
                         управления паролями, сбалансированное использование памяти и тому подобное.
                     </p>
-                    <a class="button btn--download btn_transparent" download
+                    <a class="button btn&#45;&#45;download btn_transparent" download
                        href="./image/mozilla_firefox.jfif">Скачать</a>
                 </div>
             </div>
@@ -99,7 +125,7 @@
                         защита от вирусов, а так же самая высокая производительность
                         системы без ущерба для производительности.
                     </p>
-                    <a class="button btn--download btn_transparent" download href="./image/kaspersky.png">Скачать</a>
+                    <a class="button btn&#45;&#45;download btn_transparent" download href="./image/kaspersky.png">Скачать</a>
                 </div>
             </div>
         </div>
@@ -118,9 +144,9 @@
                         платы и BIOS, оперативной памяти, видеокарты, кроме жёсткого диска. Популярна среди
                         IT-специалистов, компьютерных техников и ремонтников, геймеров и оверклокеров.
                     </p>
-                    <a class="button btn--download btn_transparent" download href="./image/CPUZ.png">Скачать</a>
+                    <a class="button btn&#45;&#45;download btn_transparent" download href="./image/CPUZ.png">Скачать</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </div>-->
+
 @endsection

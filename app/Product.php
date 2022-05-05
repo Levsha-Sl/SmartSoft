@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Http\Requests\StoreProduct;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\Storage;
@@ -74,6 +75,12 @@ class Product extends Model
         if ($this->thumbnail) {
             return asset("uploads/{$this->thumbnail}");
         }
-        return asset('no-image.jpg');
+        return asset('img/no-image.jpg');
     }
+
+    public function getProductDate()
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d F, Y');
+    }
+
 }
