@@ -22,4 +22,9 @@ class CategoryController extends Controller
 
         return view('category.show', compact('category', 'products'));
     }
+
+    public function tops()
+    {
+        dd(__METHOD__);
+    }
 }

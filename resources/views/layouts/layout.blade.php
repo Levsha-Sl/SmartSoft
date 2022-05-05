@@ -94,7 +94,7 @@
                 <a class="nav-link" href="{{route('home')}}">Главная</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./html/tops.html">Топы</a>
+                <a class="nav-link" href="{{route('categories.tops')}}">Топы</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle @if(Request::is('product/*','category/*')) active @endif" id="navbarDropdown" role="button" data-toggle="dropdown"

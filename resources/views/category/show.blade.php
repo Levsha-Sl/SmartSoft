@@ -26,7 +26,7 @@
                                 {!!Str::limit(($product->description),120, '...')!!}
                             </p>
                             <a class="btn btn-primary product-ref"
-                               href="{{route('categories.single', ['slug'=>$product->slug])}}">Открыть категорию</a>
+                               href="{{route('products.single', ['slug'=>$product->slug])}}">Открыть категорию</a>
                         </div>
                     </div>
                 </div>
