@@ -71,7 +71,7 @@
         </div>-->
 
     <ul class="pagination">
-
+        {{ $categories->links() }}
     </ul>
 @endsection
 
