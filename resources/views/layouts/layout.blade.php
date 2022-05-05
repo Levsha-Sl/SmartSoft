@@ -100,12 +100,7 @@
                 <a class="nav-link dropdown-toggle @if(Request::is('product/*','category/*')) active @endif" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">Категории</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="./html/archivators.html">Архиваторы</a>
-                    <a class="dropdown-item" href="http://smart.soft/category/antivirusy">Антивирусы</a>
-                    <a class="dropdown-item" href="./html/browsers.html">Браузеры</a>
-                    <a class="dropdown-item" href="./html/utils.html">Утилиты</a>
-                    <a class="dropdown-item" href="./html/office.html">Офисное ПО</a>
-                    <a class="dropdown-item" href="./html/graphics.html">Графика</a>
+                    @include('layouts.dropdown-item')
                 </div>
             </li>
         </ul>
