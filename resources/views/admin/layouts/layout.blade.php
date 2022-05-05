@@ -216,13 +216,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('categories.index') }}" class="nav-link">
+                                <a href="{{ route('slides.index') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Список слайдов</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('categories.create')}}" class="nav-link">
+                                <a href="{{route('slides.create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Новый слайд</p>
                                 </a>
