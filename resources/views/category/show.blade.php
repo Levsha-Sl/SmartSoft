@@ -7,7 +7,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('categories')}}"> Категории</a></li>
-                <li class="breadcrumb-item"><a>{{$product->category->title}}</a></li>
+                <li class="breadcrumb-item"><a>{{$category->title}}</a></li>
             </ol>
         </nav>
     </div>

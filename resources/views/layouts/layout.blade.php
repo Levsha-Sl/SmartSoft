@@ -97,11 +97,11 @@
                 <a class="nav-link" href="./html/tops.html">Топы</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle @if(Request::is('product/*')) active @endif" href="{{route('categories')}}" id="navbarDropdown" role="button" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle @if(Request::is('product/*','category/*')) active @endif" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">Категории</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="./html/archivators.html">Архиваторы</a>
-                    <a class="dropdown-item" href="./html/antivirus.html">Антивирусы</a>
+                    <a class="dropdown-item" href="http://smart.soft/category/antivirusy">Антивирусы</a>
                     <a class="dropdown-item" href="./html/browsers.html">Браузеры</a>
                     <a class="dropdown-item" href="./html/utils.html">Утилиты</a>
                     <a class="dropdown-item" href="./html/office.html">Офисное ПО</a>
