@@ -17,7 +17,16 @@ class ProductController extends Controller
 
     public function show($slag)
     {
-        return view('product.show');
+        $product = Product::where('slug', $slag)->firstOrFail();
+/*
+        $topProducts = Product::find('id_category', $product->id_category);
+        $topProducts = Product::with('category')->orderBy('id', 'desc')->paginate(10);
+        */
+
+        $product->views += 1;
+        $product->update();
+
+        return view('product.show', compact('product'));
     }
 }
 

@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('url');
-            $table->integer('view')->unsigned()->default(0);
+            $table->integer('views')->unsigned()->default(0);
             $table->string('thumbnail');
             $table->integer('rating')->default(0);;
             $table->timestamps();

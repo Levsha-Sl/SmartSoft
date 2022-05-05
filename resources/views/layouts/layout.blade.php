@@ -7,7 +7,7 @@
     <meta name="author" content="Вячеслав Ширнин"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="assets/img/logo-windows.ico">
+    <link rel="icon" href="{{asset('assets/img/logo-windows.ico')}}">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -81,7 +81,7 @@
 <nav class="container navbar navbar-expand-lg navbar-light sticky-top"
      style="border-radius: 0 0 10px 10px; background-color: #f0f8ff;">
     <a class="navbar-brand" href="{{route('home')}}">
-        <img width="45" height="45" alt="Windows-icon" src="assets/img/logo-windows.ico">
+        <img width="45" height="45" alt="Windows-icon" src="{{asset('assets/img/logo-windows.ico')}}">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

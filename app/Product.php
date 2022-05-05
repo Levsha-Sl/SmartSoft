@@ -75,7 +75,7 @@ class Product extends Model
         if ($this->thumbnail) {
             return asset("uploads/{$this->thumbnail}");
         }
-        return asset('img/no-image.jpg');
+        return asset('assets/img/no-image.jpg');
     }
 
     public function getProductDate()
