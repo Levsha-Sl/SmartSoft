@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Category extends Model
 {
+    //https://github.com/cviebrock/eloquent-sluggable
     use Sluggable;
 
     protected $fillable = ['title', 'description', 'thumbnail'];
